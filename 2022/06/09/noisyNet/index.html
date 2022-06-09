@@ -20,17 +20,24 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="记录一点一滴的学习和生活">
-<meta property="og:type" content="website">
+  <meta name="description" content="Nosiy Net1. 目的增强Agent的探索能力 2. 常用方式 使用e-greedy 正则化网络熵  3. 原理通过对模型增加噪声来增加模型的探索能力 噪声的添加通常是在全连接层，原来的全连接层前向计算公式为：$y&#x3D;wx+b$ 假设前面一层的神经元的个数为p，后面一层神经元的个数为q，那么有  x.shape&#x3D;(p,1) b.shape&#x3D;(q,1) y.shap">
+<meta property="og:type" content="article">
 <meta property="og:title" content="敢敢的憨憨">
-<meta property="og:url" content="http://example.com/archives/2022/06/index.html">
+<meta property="og:url" content="http://example.com/2022/06/09/noisyNet/index.html">
 <meta property="og:site_name" content="敢敢的憨憨">
-<meta property="og:description" content="记录一点一滴的学习和生活">
+<meta property="og:description" content="Nosiy Net1. 目的增强Agent的探索能力 2. 常用方式 使用e-greedy 正则化网络熵  3. 原理通过对模型增加噪声来增加模型的探索能力 噪声的添加通常是在全连接层，原来的全连接层前向计算公式为：$y&#x3D;wx+b$ 假设前面一层的神经元的个数为p，后面一层神经元的个数为q，那么有  x.shape&#x3D;(p,1) b.shape&#x3D;(q,1) y.shap">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/image/noisyNet/1649993713680.png">
+<meta property="og:image" content="http://example.com/image/noisyNet/1649993939219.png">
+<meta property="og:image" content="http://example.com/image/noisyNet/1649993949998.png">
+<meta property="og:image" content="http://example.com/image/noisyNet/1649993982623.png">
+<meta property="article:published_time" content="2022-06-09T09:15:12.789Z">
+<meta property="article:modified_time" content="2022-04-15T06:32:33.776Z">
 <meta property="article:author" content="胡刚">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/image/noisyNet/1649993713680.png">
 
-<link rel="canonical" href="http://example.com/archives/2022/06/">
+<link rel="canonical" href="http://example.com/2022/06/09/noisyNet/">
 
 
 <script id="page-configurations">
@@ -38,12 +45,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | 敢敢的憨憨</title>
+  <title> | 敢敢的憨憨</title>
   
 
 
@@ -141,70 +148,107 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 2 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/09/noisyNet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="胡刚">
+      <meta itemprop="description" content="记录一点一滴的学习和生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="敢敢的憨憨">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-06-09 17:15:12" itemprop="dateCreated datePublished" datetime="2022-06-09T17:15:12+08:00">2022-06-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-15 14:32:33" itemprop="dateModified" datetime="2022-04-15T14:32:33+08:00">2022-04-15</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-06-09T17:15:12+08:00"
-              content="2022-06-09">
-          06-09
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/06/09/noisyNet/" itemprop="url">
-            <span itemprop="name">未命名</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-06-09T15:34:37+08:00"
-              content="2022-06-09">
-          06-09
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/06/09/hello-world/" itemprop="url">
-            <span itemprop="name">Hello World</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+        <h1 id="Nosiy-Net"><a href="#Nosiy-Net" class="headerlink" title="Nosiy Net"></a>Nosiy Net</h1><h2 id="1-目的"><a href="#1-目的" class="headerlink" title="1. 目的"></a>1. 目的</h2><p>增强Agent的探索能力</p>
+<h2 id="2-常用方式"><a href="#2-常用方式" class="headerlink" title="2. 常用方式"></a>2. 常用方式</h2><ul>
+<li>使用e-greedy</li>
+<li>正则化网络熵</li>
+</ul>
+<h2 id="3-原理"><a href="#3-原理" class="headerlink" title="3. 原理"></a>3. 原理</h2><p>通过对模型增加噪声来增加模型的探索能力</p>
+<p>噪声的添加通常是在全连接层，原来的全连接层前向计算公式为：$y&#x3D;wx+b$</p>
+<p>假设前面一层的神经元的个数为p，后面一层神经元的个数为q，那么有</p>
+<ul>
+<li>x.shape&#x3D;(p,1)</li>
+<li>b.shape&#x3D;(q,1)</li>
+<li>y.shape&#x3D;(q,1)</li>
+<li>w.shape&#x3D;(q,p)</li>
+</ul>
+<p>要在此基础上加上噪声，那么就是使得每一个w和b的取值都服从参数为u，方差为σ的正态分布，同时存在一定的随机噪声ε，先假设噪声ε是服从标准正态分布N(0,1)的，那么前向计算公式为</p>
+<p><img src="/image/noisyNet/1649993713680.png"></p>
+<p>这样子，参数的个数就从p<em>q+q个，变为了2</em>(p*q+q)个，其中噪声ε视为一个随机产生的常量，不是一个变量。那么噪声ε生成的方式就有两种：</p>
+<ol>
+<li>独立高斯分布：每个w和b的噪声都使用不同的标准正态分布产生，这样是效率低下的</li>
+<li>分解高斯噪声：包含噪音的输入输出：第一个具有输入p个单位的高斯分布ε 噪音输入，第二个具有q个单位的高斯噪音输出。共 ( p + q )  个变量，其分解如下噪声：</li>
+</ol>
+<p><img src="/image/noisyNet/1649993939219.png"><img src="/image/noisyNet/1649993949998.png"></p>
+<p>下面就是w和b的初始化，来自正态分布：</p>
+<p><img src="/image/noisyNet/1649993982623.png"></p>
+<p>对于b的初始化：分子部分为0.4</p>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/06/09/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
@@ -257,6 +301,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Nosiy-Net"><span class="nav-number">1.</span> <span class="nav-text">Nosiy Net</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E7%9B%AE%E7%9A%84"><span class="nav-number">1.1.</span> <span class="nav-text">1. 目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%B8%B8%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">2. 常用方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%8E%9F%E7%90%86"><span class="nav-number">1.3.</span> <span class="nav-text">3. 原理</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
