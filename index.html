@@ -373,7 +373,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-10 14:29:36" itemprop="dateModified" datetime="2022-06-10T14:29:36+08:00">2022-06-10</time>
+                <time title="修改时间：2022-06-10 14:38:34" itemprop="dateModified" datetime="2022-06-10T14:38:34+08:00">2022-06-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -413,16 +413,16 @@
 <li>w.shape&#x3D;(q,p)</li>
 </ul>
 <p>要在此基础上加上噪声，那么就是使得每一个w和b的取值都服从参数为u，方差为σ的正态分布，同时存在一定的随机噪声ε，先假设噪声ε是服从标准正态分布N(0,1)的，那么前向计算公式为</p>
-<p><img src="D:\Blog\source_posts\1.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mrhugdzh/blog-images/1.png"></p>
 <p>这样子，参数的个数就从p<em>q+q个，变为了2</em>(p*q+q)个，其中噪声ε视为一个随机产生的常量，不是一个变量。那么噪声ε生成的方式就有两种：</p>
 <ol>
 <li>独立高斯分布：每个w和b的噪声都使用不同的标准正态分布产生，这样是效率低下的</li>
 <li>分解高斯噪声：包含噪音的输入输出：第一个具有输入p个单位的高斯分布ε 噪音输入，第二个具有q个单位的高斯噪音输出。共 ( p + q )  个变量，其分解如下噪声：</li>
 </ol>
-<p><img src="D:\Blog\source_posts\2.png"></p>
-<p><img src="D:\Blog\source_posts\3.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mrhugdzh/blog-images/2.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mrhugdzh/blog-images/3.png"></p>
 <p>下面就是w和b的初始化，来自正态分布：</p>
-<p><img src="D:\Blog\source_posts\4.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mrhugdzh/blog-images/4.png"></p>
 <p>对于b的初始化：分子部分为0.4</p>
 
       
