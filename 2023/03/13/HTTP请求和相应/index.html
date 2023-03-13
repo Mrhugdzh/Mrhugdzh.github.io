@@ -20,17 +20,25 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="记录一点一滴的学习和生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="敢敢的憨憨">
-<meta property="og:url" content="http://example.com/tags/%E6%B7%B1%E5%BA%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/index.html">
+  <meta name="description" content="HTTP 请求格式 请求行请求方法常用的有：  GET：地址栏访问、超链接访问一般都是 GET 方法，不安全，并且地址栏大小有限 POST：内容在请求体中，安全，没有长度限制  URL：请求的地址 版本协议：  HTTP&#x2F;1.0：建立连接后立即断开，下次访问再次建立连接 HTTP&#x2F;1.1：建立连接后可以不断开，待不在需要访问，再断开连接。  回车符换行符：\r\n 请求头部 ：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP请求和相应">
+<meta property="og:url" content="http://example.com/2023/03/13/HTTP%E8%AF%B7%E6%B1%82%E5%92%8C%E7%9B%B8%E5%BA%94/index.html">
 <meta property="og:site_name" content="敢敢的憨憨">
-<meta property="og:description" content="记录一点一滴的学习和生活">
+<meta property="og:description" content="HTTP 请求格式 请求行请求方法常用的有：  GET：地址栏访问、超链接访问一般都是 GET 方法，不安全，并且地址栏大小有限 POST：内容在请求体中，安全，没有长度限制  URL：请求的地址 版本协议：  HTTP&#x2F;1.0：建立连接后立即断开，下次访问再次建立连接 HTTP&#x2F;1.1：建立连接后可以不断开，待不在需要访问，再断开连接。  回车符换行符：\r\n 请求头部 ：">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mrhu-1314150645.cos.ap-beijing.myqcloud.com/obsidian/pic/20230223200548.png">
+<meta property="og:image" content="https://mrhu-1314150645.cos.ap-beijing.myqcloud.com/obsidian/pic/20230223201425.png">
+<meta property="og:image" content="https://mrhu-1314150645.cos.ap-beijing.myqcloud.com/obsidian/pic/20230223201609.png">
+<meta property="og:image" content="https://mrhu-1314150645.cos.ap-beijing.myqcloud.com/obsidian/pic/20230223201816.png">
+<meta property="article:published_time" content="2023-03-13T05:26:08.000Z">
+<meta property="article:modified_time" content="2023-03-13T05:29:30.986Z">
 <meta property="article:author" content="胡刚">
+<meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mrhu-1314150645.cos.ap-beijing.myqcloud.com/obsidian/pic/20230223200548.png">
 
-<link rel="canonical" href="http://example.com/tags/%E6%B7%B1%E5%BA%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">
+<link rel="canonical" href="http://example.com/2023/03/13/HTTP%E8%AF%B7%E6%B1%82%E5%92%8C%E7%9B%B8%E5%BA%94/">
 
 
 <script id="page-configurations">
@@ -38,12 +46,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签: 深度强化学习 | 敢敢的憨憨</title>
+  <title>HTTP请求和相应 | 敢敢的憨憨</title>
   
 
 
@@ -171,77 +179,171 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">深度强化学习
-          <small>标签</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/13/HTTP%E8%AF%B7%E6%B1%82%E5%92%8C%E7%9B%B8%E5%BA%94/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/user.png">
+      <meta itemprop="name" content="胡刚">
+      <meta itemprop="description" content="记录一点一滴的学习和生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="敢敢的憨憨">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          HTTP请求和相应
+        </h1>
+
+        <div class="post-meta">
+			
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-03-13 13:26:08 / 修改时间：13:29:30" itemprop="dateCreated datePublished" datetime="2023-03-13T13:26:08+08:00">2023-03-13</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-06-09T19:53:48+08:00"
-              content="2022-06-09">
-          06-09
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/06/09/Thompsonsampling/" itemprop="url">
-            <span itemprop="name">Thompsonsampling</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-06-09T17:22:23+08:00"
-              content="2022-06-09">
-          06-09
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/06/09/Noisy-Net/" itemprop="url">
-            <span itemprop="name">Noisy Net</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
+        <h1 id="HTTP-请求格式"><a href="#HTTP-请求格式" class="headerlink" title="HTTP 请求格式"></a>HTTP 请求格式</h1><p><img src="https://mrhu-1314150645.cos.ap-beijing.myqcloud.com/obsidian/pic/20230223200548.png" alt="image.png"></p>
+<h2 id="请求行"><a href="#请求行" class="headerlink" title="请求行"></a>请求行</h2><p>请求方法常用的有：</p>
+<ul>
+<li>GET：地址栏访问、超链接访问一般都是 GET 方法，不安全，并且地址栏大小有限</li>
+<li>POST：内容在请求体中，安全，没有长度限制</li>
+</ul>
+<p>URL：请求的地址</p>
+<p>版本协议：</p>
+<ul>
+<li>HTTP&#x2F;1.0：建立连接后立即断开，下次访问再次建立连接</li>
+<li>HTTP&#x2F;1.1：建立连接后可以<strong>不断开</strong>，<strong>待不在需要访问，再断开连接</strong>。</li>
+</ul>
+<p>回车符换行符：<strong>\r\n</strong></p>
+<h2 id="请求头部-："><a href="#请求头部-：" class="headerlink" title="请求头部 ："></a>请求头部 ：</h2><p><img src="https://mrhu-1314150645.cos.ap-beijing.myqcloud.com/obsidian/pic/20230223201425.png" alt="image.png"></p>
+<h2 id="回车符换行符"><a href="#回车符换行符" class="headerlink" title="回车符换行符"></a>回车符换行符</h2><p>一般用来分割请求头部和请求体</p>
+<h2 id="请求数据"><a href="#请求数据" class="headerlink" title="请求数据"></a>请求数据</h2><p>一般是 POST 请求方式才有</p>
+<h1 id="HTTP-响应格式"><a href="#HTTP-响应格式" class="headerlink" title="HTTP 响应格式"></a>HTTP 响应格式</h1><p><img src="https://mrhu-1314150645.cos.ap-beijing.myqcloud.com/obsidian/pic/20230223201609.png" alt="image.png"></p>
+<h2 id="状态行"><a href="#状态行" class="headerlink" title="状态行"></a>状态行</h2><p>状态码：</p>
+<ul>
+<li>200</li>
+<li>302：重定向</li>
+<li>304：从本地浏览器缓存拿取数据</li>
+<li>404</li>
+<li>500</li>
+</ul>
+<h2 id="响应头部"><a href="#响应头部" class="headerlink" title="响应头部"></a>响应头部</h2><p><img src="https://mrhu-1314150645.cos.ap-beijing.myqcloud.com/obsidian/pic/20230223201816.png" alt="image.png"></p>
 
     </div>
+
+    
+    
+    
+	
+	 
+   <div>
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:24px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+   </div>
+ 
+        <div class="reward-container">
+  <div>技术生活分享，感谢支持！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/weixinchat.jpg" alt="胡刚 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/zhifubaochat.png" alt="胡刚 支付宝">
+        <p>支付宝</p>
+      </div>
+
   </div>
-  
-  
-  
+</div>
 
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>胡刚
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2023/03/13/HTTP%E8%AF%B7%E6%B1%82%E5%92%8C%E7%9B%B8%E5%BA%94/" title="HTTP请求和相应">http://example.com/2023/03/13/HTTP请求和相应/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag"># 计算机网络</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/03/13/%E4%B8%89%E4%BD%93-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="prev" title="三体（读书笔记）">
+      <i class="fa fa-chevron-left"></i> 三体（读书笔记）
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
 
           </div>
           
+    
+  <div class="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC81NjU3NS8zMzAzOA=="></div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -288,6 +390,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP-%E8%AF%B7%E6%B1%82%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">HTTP 请求格式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E8%A1%8C"><span class="nav-number">1.1.</span> <span class="nav-text">请求行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E5%A4%B4%E9%83%A8-%EF%BC%9A"><span class="nav-number">1.2.</span> <span class="nav-text">请求头部 ：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E8%BD%A6%E7%AC%A6%E6%8D%A2%E8%A1%8C%E7%AC%A6"><span class="nav-number">1.3.</span> <span class="nav-text">回车符换行符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E6%95%B0%E6%8D%AE"><span class="nav-number">1.4.</span> <span class="nav-text">请求数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP-%E5%93%8D%E5%BA%94%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">HTTP 响应格式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E8%A1%8C"><span class="nav-number">2.1.</span> <span class="nav-text">状态行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%93%8D%E5%BA%94%E5%A4%B4%E9%83%A8"><span class="nav-number">2.2.</span> <span class="nav-text">响应头部</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -469,6 +572,21 @@ $(document).ready(function() {
 
   
 
+<script>
+NexT.utils.loadComments(document.querySelector('#lv-container'), () => {
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+});
+</script>
 
 </body>
 </html>
