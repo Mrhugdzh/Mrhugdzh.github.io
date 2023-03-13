@@ -20,30 +20,58 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="记录一点一滴的学习和生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="敢敢的憨憨">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="计算机网络从下到上依次为物理层、数据链路层、网络层、传输层、会话层、表示层和应用层。最常题记的便是数据链路层、网络层、传输层和应用层。 TCP&#x2F;IP 协议族 DNS 工作原理DNS：域名查询服务，将域名转换为对应的 IP 地址 DNS 查询和应答报文DNS 是一套分布式的域名服务系统，每个 DNS 服务器上都存放着大量的机器名和 IP 地址的映射，并且是动态更新的。 1举例：Linux下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 高性能服务器编程">
+<meta property="og:url" content="http://example.com/2023/03/13/Linux-%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BC%96%E7%A8%8B/index.html">
 <meta property="og:site_name" content="敢敢的憨憨">
-<meta property="og:description" content="记录一点一滴的学习和生活">
+<meta property="og:description" content="计算机网络从下到上依次为物理层、数据链路层、网络层、传输层、会话层、表示层和应用层。最常题记的便是数据链路层、网络层、传输层和应用层。 TCP&#x2F;IP 协议族 DNS 工作原理DNS：域名查询服务，将域名转换为对应的 IP 地址 DNS 查询和应答报文DNS 是一套分布式的域名服务系统，每个 DNS 服务器上都存放着大量的机器名和 IP 地址的映射，并且是动态更新的。 1举例：Linux下">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="d:/Blog/source_posts/20230202145251.png">
+<meta property="og:image" content="d:/Blog/source_posts/20230202145846.png">
+<meta property="og:image" content="d:/Blog/source_posts/20230202160411.png">
+<meta property="og:image" content="d:/Blog/source_posts/20230202154603.png">
+<meta property="og:image" content="d:/Blog/source_posts/20230208103636.png">
+<meta property="og:image" content="d:/Blog/source_posts/20230208105726.png">
+<meta property="og:image" content="d:/Blog/source_posts/20230208111305.png">
+<meta property="og:image" content="d:/Blog/source_posts/20230208111507.png">
+<meta property="og:image" content="d:/Blog/source_posts/20230208161000.png">
+<meta property="og:image" content="d:/Blog/source_posts/20230208161736.png">
+<meta property="og:image" content="d:/Blog/source_posts/20230208162137.png">
+<meta property="og:image" content="d:/Blog/source_posts/20230208163001.png">
+<meta property="og:image" content="d:/Blog/source_posts/20230208170830.png">
+<meta property="og:image" content="d:/Blog/source_posts/20230215170003.png">
+<meta property="og:image" content="d:/Blog/source_posts/20230208103645.png">
+<meta property="og:image" content="d:/Blog/source_posts/20230215170620.png">
+<meta property="og:image" content="d:/Blog/source_posts/20230217093800.png">
+<meta property="og:image" content="d:/Blog/source_posts/20230217094033.png">
+<meta property="og:image" content="d:/Blog/source_posts/20230217094230.png">
+<meta property="og:image" content="d:/Blog/source_posts/20230217095709.png">
+<meta property="og:image" content="d:/Blog/source_posts/20230218155308.png">
+<meta property="og:image" content="d:/Blog/source_posts/20230220083733.png">
+<meta property="og:image" content="d:/Blog/source_posts/20230220110213.png">
+<meta property="og:image" content="d:/Blog/source_posts/20230221085825.png">
+<meta property="article:published_time" content="2023-03-13T03:11:02.000Z">
+<meta property="article:modified_time" content="2023-03-13T03:14:28.017Z">
 <meta property="article:author" content="胡刚">
+<meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="d:/Blog/source_posts/20230202145251.png">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2023/03/13/Linux-%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BC%96%E7%A8%8B/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>敢敢的憨憨</title>
+  <title>Linux 高性能服务器编程 | 敢敢的憨憨</title>
   
 
 
@@ -171,87 +199,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/09/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/user.png">
-      <meta itemprop="name" content="胡刚">
-      <meta itemprop="description" content="记录一点一滴的学习和生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="敢敢的憨憨">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/06/09/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-			
-			  <i class="fa fa-thumb-tack"></i>
-			  <font color=7D26CD>置顶</font>
-			  <span class="post-meta-divider">|</span>
-		  
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-06-09 15:34:37 / 修改时间：19:05:32" itemprop="dateCreated datePublished" datetime="2022-06-09T15:34:37+08:00">2022-06-09</time>
-            </span>
-
-          
-
-        </div>
-      </header>
 
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-	
-	 
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -267,10 +218,9 @@
       <meta itemprop="name" content="敢敢的憨憨">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/03/13/Linux-%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BC%96%E7%A8%8B/" class="post-title-link" itemprop="url">Linux 高性能服务器编程</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          Linux 高性能服务器编程
+        </h1>
 
         <div class="post-meta">
 			
@@ -285,6 +235,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
 
         </div>
       </header>
@@ -295,7 +252,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>计算机网络从下到上依次为物理层、数据链路层、网络层、传输层、会话层、表示层和应用层。最常题记的便是数据链路层、网络层、传输层和应用层。</p>
+        <p>计算机网络从下到上依次为物理层、数据链路层、网络层、传输层、会话层、表示层和应用层。最常题记的便是数据链路层、网络层、传输层和应用层。</p>
 <h2 id="TCP-x2F-IP-协议族"><a href="#TCP-x2F-IP-协议族" class="headerlink" title="TCP&#x2F;IP 协议族"></a>TCP&#x2F;IP 协议族</h2><p><img src="D:\Blog\source_posts\20230202145251.png" alt="image.png"></p>
 <h3 id="DNS-工作原理"><a href="#DNS-工作原理" class="headerlink" title="DNS 工作原理"></a>DNS 工作原理</h3><p>DNS：域名查询服务，将域名转换为对应的 IP 地址</p>
 <h4 id="DNS-查询和应答报文"><a href="#DNS-查询和应答报文" class="headerlink" title="DNS 查询和应答报文"></a>DNS 查询和应答报文</h4><p>DNS 是一套分布式的域名服务系统，每个 DNS 服务器上都存放着大量的机器名和 IP 地址的映射，并且是动态更新的。</p>
@@ -558,7 +515,6 @@
 
 <p>互斥属性</p>
 
-      
     </div>
 
     
@@ -566,211 +522,84 @@
     
 	
 	 
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
+   <div>
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:24px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+   </div>
+ 
+        <div class="reward-container">
+  <div>技术生活分享，感谢支持！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
       
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/09/Thompsonsampling/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/user.png">
-      <meta itemprop="name" content="胡刚">
-      <meta itemprop="description" content="记录一点一滴的学习和生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="敢敢的憨憨">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/06/09/Thompsonsampling/" class="post-title-link" itemprop="url">Thompsonsampling</a>
-        </h2>
-
-        <div class="post-meta">
-			
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-06-09 19:53:48 / 修改时间：19:54:59" itemprop="dateCreated datePublished" datetime="2022-06-09T19:53:48+08:00">2022-06-09</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度强化学习</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      <div style="display: inline-block;">
+        <img src="/images/weixinchat.jpg" alt="胡刚 微信支付">
+        <p>微信支付</p>
+      </div>
       
-          <h2 id="汤普森采样"><a href="#汤普森采样" class="headerlink" title="汤普森采样"></a>汤普森采样</h2><p>在贪婪算法和信心上限算法（UCB）中，使用到的都是先验知识进行的动作选取，通过之前奖励的累计来进行动作的选择。</p>
-<p>汤普森采样是跟后验知识进行的动作选择，不是一个具体的值，也是采取一种采样的方式。首先一开始得到的是动作的先验知识，然后在获得数据的前提下，得到后验知识，然后在后验知识中进行采样，相当于是一种采样，虽然动作概率高，但是每个动作都有用被选到的可能性。</p>
-<h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a>1. 介绍</h2><p>与之前的e-greedy算法和UCB算法不同，前两种算法选择动作的依据是通过之前选择的动作所获得的奖励值的均值来进行动作的选择，而汤普森采样则不是根据以前采样的平均奖励去扩展这个建立得到后面的动作，而是从已有的分布中建立一种可能的模型，然后从这个模型中进行抽样选择动作。</p>
-<p>这种方式，不仅仅是一种对已有奖励的一种准确的评估，同时模型也会对于这个奖励有一定的信心，这种信心会随着采集数据的增多变得越来越准确。这就是<strong>贝叶斯推理</strong>。</p>
-<h2 id="2-汤普森采样"><a href="#2-汤普森采样" class="headerlink" title="2 汤普森采样"></a>2 汤普森采样</h2><p>就像介绍的那样，为了使事情变得简单，我们简化充电问题。现在，每一个充电桩不会返回一个随机的电量，而是返回充电或者不充电，奖励仅仅只有两个值，一个是1，表示这个充电桩会提供电量，另一个是0表示这个充电桩不会提供电量。当一个随机的问题只有这两种可能的输出的时候，这个问题就可以问描述为伯努利分布。</p>
-<p>所以，现在问题就称为了我们希望找到尽可能高可能性的可以返回给我们电量的充电桩，而不是找到给我们充电电量最多的充电桩。（<strong>问题转换为了伯努利分布）</strong></p>
-<p>根据上面提到的，汤普森采样产生了一个奖励可能性的模型。同时，在这个例子中，可能的奖励只有两种，所以贝塔分布很理想到利用到这了这种情况</p>
-<p>贝塔分布有两个参数分贝时 alpha 和 bate。在简单的例子中，这两个参数可能分别被看做是成功和失败的次数。</p>
-<p>此外，贝</p>
-<p>相反对于贪婪算法，采取每一个时间步下采取当前最高评估奖励值的动作，针织此时对于评估的信心是较低的。不同的是，汤普森采样从每个动作的贝塔分布中进行采样，并且选择具有最高价值的动作，由于一开始动作没有被充分的尝试，所以有一个分款的分布，他们都有很大的可能去呗采集到，通过这种方式，充电桩当前拥有很低的评估均值奖励，但是拥有更少的被探测的次数与一个更高评估均值的来说，可以返回一个更大的采样价值，因此在这个时间步，可以被选择。（<strong>意思就是说一个拥有很低预估奖励的动作在采样价值的时候可能也会很大，所以动作也可能被选择</strong>）</p>
-<p>在下面的图中，蓝色的曲线与绿色的曲线相比，有着较低的平均奖励值，所以如果使用贪婪算法的话，那么会一直采用绿色曲线的动作，蓝色曲线的动作就一直不会被采取，但是在汤普深采样中，考虑的是整个区间，所以绿色区间可能被采样到的奖励值可能小于蓝色去向采样到的奖励值，所以蓝色动作就有被选择的可能性。</p>
-<p>随着一个充电桩被尝试的次数越来越多，关于它的评估均值奖励分布的模型的信心越来越充足。这反映在分布变得越来越窄，所以接下来的均值奖励的采样越来越接近于真实动作的均值奖励。因此，探索减少，利用增多，因为带有更高可能性返回更大奖励值的充电桩将会随之被采取的次数越来越多。</p>
-<p>另一方面，带有较低评估奖励的充电桩将会被选择的次数越来越少，在接下来的选择过程中将会被逐步淘汰。因此他们的真实奖励或许永远都不会被发现，因为我们只是关注对于可能返回更多奖励的充电桩出现的可能性，并且尽可能快速的发现他，我们不关心表现不好的充电桩的全部信息。</p>
-<h3 id="3-汤普森采样例子"><a href="#3-汤普森采样例子" class="headerlink" title="3 汤普森采样例子"></a>3 汤普森采样例子</h3><h3 id="4-高斯汤普森采样"><a href="#4-高斯汤普森采样" class="headerlink" title="4 高斯汤普森采样"></a>4 高斯汤普森采样</h3><p>虽然上面的方式可以很好的解决问题，但是在真实的充电桩问题中，充电桩返回的不是一个二进制的数据，而是真实的充电的数量，我们需要改变我们的方法。</p>
-<p>在先前的问题中，我们使用贝塔分布来建模充电桩的行为。这样做的原因是充电桩的返回仅仅有两种，充电或者是未充电，因此可以描述为一个伯努利分布。当一个价值从伯努利分布中被采样，那么可以被推广成一个价值从贝塔分布中进行采样。</p>
-<p>所以我们可以将充电桩的输出建模为一种正态分布，并且通过它的均值和方差不断进行更新这个模型，如果不适用方差，而是使用准确度 tau ，tau是方差的倒数，然后我们可以使用简单的更新规则去更新均值和准确度 tau通过如下的方式：</p>
+      <div style="display: inline-block;">
+        <img src="/images/zhifubaochat.png" alt="胡刚 支付宝">
+        <p>支付宝</p>
+      </div>
 
-      
-    </div>
+  </div>
+</div>
 
-    
-    
-    
-	
-	 
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+        
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/09/Noisy-Net/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/user.png">
-      <meta itemprop="name" content="胡刚">
-      <meta itemprop="description" content="记录一点一滴的学习和生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="敢敢的憨憨">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/06/09/Noisy-Net/" class="post-title-link" itemprop="url">Noisy Net</a>
-        </h2>
-
-        <div class="post-meta">
-			
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-06-09 17:22:23" itemprop="dateCreated datePublished" datetime="2022-06-09T17:22:23+08:00">2022-06-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-10 14:40:21" itemprop="dateModified" datetime="2022-06-10T14:40:21+08:00">2022-06-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度强化学习</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>增强Agent的探索能力</p>
- <!--   more  --> 
-
-<h2 id="2-常用方式"><a href="#2-常用方式" class="headerlink" title="2. 常用方式"></a>2. 常用方式</h2><ul>
-<li>使用e-greedy</li>
-<li>正则化网络熵</li>
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>胡刚
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2023/03/13/Linux-%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BC%96%E7%A8%8B/" title="Linux 高性能服务器编程">http://example.com/2023/03/13/Linux-高性能服务器编程/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
 </ul>
-<h2 id="3-原理"><a href="#3-原理" class="headerlink" title="3. 原理"></a>3. 原理</h2><p>通过对模型增加噪声来增加模型的探索能力</p>
-<p>噪声的添加通常是在全连接层，原来的全连接层前向计算公式为：$y&#x3D;wx+b$</p>
-<p>假设前面一层的神经元的个数为p，后面一层神经元的个数为q，那么有</p>
-<ul>
-<li>x.shape&#x3D;(p,1)</li>
-<li>b.shape&#x3D;(q,1)</li>
-<li>y.shape&#x3D;(q,1)</li>
-<li>w.shape&#x3D;(q,p)</li>
-</ul>
-<p>要在此基础上加上噪声，那么就是使得每一个w和b的取值都服从参数为u，方差为σ的正态分布，同时存在一定的随机噪声ε，先假设噪声ε是服从标准正态分布N(0,1)的，那么前向计算公式为</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mrhugdzh/blog-images/1.png"></p>
-<p>这样子，参数的个数就从p<em>q+q个，变为了2</em>(p*q+q)个，其中噪声ε视为一个随机产生的常量，不是一个变量。那么噪声ε生成的方式就有两种：</p>
-<ol>
-<li>独立高斯分布：每个w和b的噪声都使用不同的标准正态分布产生，这样是效率低下的</li>
-<li>分解高斯噪声：包含噪音的输入输出：第一个具有输入p个单位的高斯分布ε 噪音输入，第二个具有q个单位的高斯噪音输出。共 ( p + q )  个变量，其分解如下噪声：</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/Mrhugdzh/blog-images/2.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mrhugdzh/blog-images/3.png"></p>
-<p>下面就是w和b的初始化，来自正态分布：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mrhugdzh/blog-images/4.png"></p>
-<p>对于b的初始化：分子部分为0.4</p>
+</div>
 
-      
-    </div>
 
-    
-    
-    
-	
-	 
       <footer class="post-footer">
-        <div class="post-eof"></div>
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag"># 计算机网络</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/06/09/Thompsonsampling/" rel="prev" title="Thompsonsampling">
+      <i class="fa fa-chevron-left"></i> Thompsonsampling
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
 
           </div>
           
+    
+  <div class="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC81NjU3NS8zMzAzOA=="></div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -817,6 +646,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-x2F-IP-%E5%8D%8F%E8%AE%AE%E6%97%8F"><span class="nav-number">1.</span> <span class="nav-text">TCP&#x2F;IP 协议族</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">1.1.</span> <span class="nav-text">DNS 工作原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DNS-%E6%9F%A5%E8%AF%A2%E5%92%8C%E5%BA%94%E7%AD%94%E6%8A%A5%E6%96%87"><span class="nav-number">1.1.1.</span> <span class="nav-text">DNS 查询和应答报文</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Socket"><span class="nav-number">1.2.</span> <span class="nav-text">Socket</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IP-%E5%8D%8F%E8%AE%AE%E6%97%8F-IP%E5%8D%8F%E8%AE%AE"><span class="nav-number">2.</span> <span class="nav-text">IP 协议族 #IP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IPV4"><span class="nav-number">2.1.</span> <span class="nav-text">IPV4</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%B4%E9%83%A8%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.1.</span> <span class="nav-text">头部结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IP-%E5%88%86%E7%89%87"><span class="nav-number">2.1.2.</span> <span class="nav-text">IP 分片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IP-%E8%B7%AF%E7%94%B1"><span class="nav-number">2.1.3.</span> <span class="nav-text">IP 路由</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-%E5%8D%8F%E8%AE%AE"><span class="nav-number">3.</span> <span class="nav-text">TCP 协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP"><span class="nav-number">3.1.</span> <span class="nav-text">TCP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UDP"><span class="nav-number">3.2.</span> <span class="nav-text">UDP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">3.3.</span> <span class="nav-text">部署代理服务器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#API"><span class="nav-number">4.</span> <span class="nav-text">API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Socket-%E5%9C%B0%E5%9D%80-API"><span class="nav-number">4.1.</span> <span class="nav-text">Socket 地址 API</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#I-x2F-O-%E5%87%BD%E6%95%B0"><span class="nav-number">5.</span> <span class="nav-text">I&#x2F;O 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-x2F-S-%E6%A8%A1%E5%9E%8B"><span class="nav-number">6.</span> <span class="nav-text">C&#x2F;S 模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P2P-%E6%A8%A1%E5%9E%8B"><span class="nav-number">7.</span> <span class="nav-text">P2P 模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BC%96%E7%A8%8B%E6%A1%86%E6%9E%B6"><span class="nav-number">8.</span> <span class="nav-text">服务器编程框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#I-x2F-O-%E6%A8%A1%E5%9E%8B"><span class="nav-number">9.</span> <span class="nav-text">I&#x2F;O 模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E6%A8%A1%E5%BC%8F"><span class="nav-number">10.</span> <span class="nav-text">事件处理模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B6%E5%8F%91%E6%A8%A1%E5%BC%8F"><span class="nav-number">11.</span> <span class="nav-text">并发模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA"><span class="nav-number">12.</span> <span class="nav-text">有限状态机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IO-%E5%A4%8D%E7%94%A8-IO%E5%A4%8D%E7%94%A8"><span class="nav-number">13.</span> <span class="nav-text">IO 复用 #IO复用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Select-%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8"><span class="nav-number">13.1.</span> <span class="nav-text">Select 系统调用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#API-1"><span class="nav-number">13.1.1.</span> <span class="nav-text">API</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Poll-%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8"><span class="nav-number">13.2.</span> <span class="nav-text">Poll 系统调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#epoll-%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8"><span class="nav-number">13.3.</span> <span class="nav-text">epoll 系统调用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E7%BB%84-IO-%E5%A4%8D%E7%94%A8%E5%87%BD%E6%95%B0%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-number">14.</span> <span class="nav-text">三组 IO 复用函数的比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%A1%E5%8F%B7"><span class="nav-number">15.</span> <span class="nav-text">信号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E6%97%B6%E5%99%A8"><span class="nav-number">16.</span> <span class="nav-text">定时器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Socket-%E5%AE%9A%E6%97%B6"><span class="nav-number">17.</span> <span class="nav-text">Socket 定时</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%A1%E5%8F%B7%E5%AE%9A%E6%97%B6"><span class="nav-number">18.</span> <span class="nav-text">信号定时</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IO-%E5%AE%9A%E6%97%B6"><span class="nav-number">19.</span> <span class="nav-text">IO 定时</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E8%BD%AE"><span class="nav-number">20.</span> <span class="nav-text">时间轮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Libevent"><span class="nav-number">21.</span> <span class="nav-text">Libevent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="nav-number">22.</span> <span class="nav-text">多线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%A1%E5%8F%B7%E9%87%8F"><span class="nav-number">23.</span> <span class="nav-text">信号量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%92%E6%96%A5%E9%94%81%EF%BC%88%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%9A%84%E4%BF%A1%E5%8F%B7%E9%87%8F%EF%BC%89"><span class="nav-number">24.</span> <span class="nav-text">互斥锁（二进制的信号量）</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -998,6 +828,21 @@ $(document).ready(function() {
 
   
 
+<script>
+NexT.utils.loadComments(document.querySelector('#lv-container'), () => {
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+});
+</script>
 
 </body>
 </html>
