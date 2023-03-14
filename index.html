@@ -255,6 +255,138 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/14/C-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/user.png">
+      <meta itemprop="name" content="胡刚">
+      <meta itemprop="description" content="记录一点一滴的学习和生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="敢敢的憨憨">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/14/C-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/" class="post-title-link" itemprop="url">C++ 智能指针</a>
+        </h2>
+
+        <div class="post-meta">
+			
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-03-14 09:22:49 / 修改时间：09:23:46" itemprop="dateCreated datePublished" datetime="2023-03-14T09:22:49+08:00">2023-03-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>原始指针出现的问题：（<strong>声明和销毁的问题，对象声明周期的问题</strong>） #原始指针的问题</p>
+<ol>
+<li>它的声明不能指示所指的到底是单个对象还是一个数组</li>
+<li>它的声明没有告诉你用完是否应该销毁它</li>
+<li>销毁是该使用 delete 机制还是析构机制</li>
+<li>如果使用 delete，那么是是哟经 delete，还是 delete[]</li>
+<li>很难确定在所有执行路径上都执行了恰为一次的销毁</li>
+<li>没办法告诉你是否成为了悬空指针，即内存不再存在所指之物，指针仍然指向他们</li>
+</ol>
+<p>智能指针包裹原始指针，存在四种智能指针：</p>
+<ul>
+<li>Std::auto_ptr</li>
+<li>Std::unique_ptr</li>
+<li>Std::shared_ptr</li>
+<li>Std::weak_ptr</li>
+</ul>
+<h3 id="独占资源使用-std-unique-ptr"><a href="#独占资源使用-std-unique-ptr" class="headerlink" title="独占资源使用 std::unique_ptr"></a>独占资源使用 std::unique_ptr</h3><p>Std:: unique_ptr 完全可以取代原始指针，它体现了专有所有权语义。</p>
+<ul>
+<li><p>一个非 null 的 std:: unique_ptr 始终拥有其指向的内容（<strong>不会造成悬空指针</strong>）</p>
+</li>
+<li><p>移动一个 std:: unique_ptr 将所有权从源指针转移到目的指针，源指针被设为 null（**移动操作）</p>
+</li>
+<li><p>拷贝一个 std:: unique_ptr 是不被允许的（<strong>出现重复销毁的问题</strong>）<br>所以 std:: unique_ptr 是一个<strong>只可移动</strong>类型的，当析构时，默认情况下，采用原始指针调用<strong>delete</strong>的方式来实现。</p>
+</li>
+<li><p>Std:: unique_ptr 可以自定义删除操作，需要定义一个 Lambda 表达式</p>
+</li>
+<li><p>当自定义删除器时，删除器类型必须作为第二个类型实参传递给 std::unique_ptr</p>
+</li>
+<li><p>Std:: unique_ptr 可以快速的转换为 std::shared_ptr</p>
+</li>
+</ul>
+<h3 id="资源共享使用-std-shared-ptr"><a href="#资源共享使用-std-shared-ptr" class="headerlink" title="资源共享使用 std::shared_ptr"></a>资源共享使用 std::shared_ptr</h3><p>Std:: shared_ptr 用过引用计数来确保它是否是最后一个指向某种资源的指针。所以构造函数通常递增计数器，析构函数递减计数器，如果计数器递减后发现计数器值为 0，那么他就会销毁对象资源。</p>
+<p>引用计数器暗含着性能问题：</p>
+<ul>
+<li><strong>Std:: shared_ptr 大小是原始指针的两倍</strong>，既含有一个指向资源的原始指，又有一个指向资源的引用计数值的原始指针。</li>
+<li><strong>引用计数的内存必须动态分配</strong></li>
+<li><strong>递增递减操作必须是原子性的</strong></li>
+</ul>
+<p>因为移动构造函数的存在，所以构造函数不总是递增计数器。老的 shared_ptr 指向 null，所以移动构造比拷贝构造快</p>
+<p>Std:: shared_ptr 同样也可以自定义删除器，但是删除器不是智能指针的一部分</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> logginDel=[](Weight *pw*)&#123;</span><br><span class="line"><span class="built_in">makeLog</span>(pw);</span><br><span class="line"><span class="keyword">delete</span> pw;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">std::shared_ptr&lt;Weight&gt; <span class="title">spw</span><span class="params">(<span class="keyword">new</span> Weight, logginDel)</span>  # 这里</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://mrhu-1314150645.cos.ap-beijing.myqcloud.com/obsidian/pic/20230213101350.png" alt="image.png"></p>
+<p>控制块的创建遵循的规则：</p>
+<ul>
+<li>Std::make_shared：总是创建一个控制块，所以 std:: make_shared 调用时对象不存在其他控制块</li>
+<li>当从独占指针上构造出 std:: shared_ptr 时会创建控制块</li>
+<li>从原始指针构造出 std:: shared_ptr 时会创建控制块</li>
+</ul>
+<ol>
+<li>避免传给 std:: shared_ptr 构造函数原始指针，通常代替方法是使用 std::make_shared</li>
+<li>如果必须传递原始指针，使用 new 出来的结果，不传递指针变量</li>
+</ol>
+<p>Std:: shared_ptr 不能够处理数组</p>
+<h3 id="当-std-shared-ptr-可能悬空时使用-std-weak-ptr"><a href="#当-std-shared-ptr-可能悬空时使用-std-weak-ptr" class="headerlink" title="当 std:: shared_ptr 可能悬空时使用 std::weak_ptr"></a>当 std:: shared_ptr 可能悬空时使用 std::weak_ptr</h3><p>Std:: weak_ptr 通常是从 std:: shared_ptr 上创建，并且 std:: weak_ptr 不会影响对象的引用计数。</p>
+<pre><code>此时如果想要通过判断std::weak_ptr是否为空，并且对其操作，那么需要一个原子操作，防止其他线程修改。有两种方式：
+1. std::weak_ptr::lock，返回一个shared_ptr，如果过期，那么这个shared_ptr为空
+2. 使用weak_ptr为实参构造shared_ptr，如果过期，会抛出异常
+</code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">std::shared_ptr&lt;Weight&gt; spw1=wpw.<span class="built_in">lock</span>();</span><br><span class="line"><span class="keyword">auto</span> spw1=wpw.<span class="built_in">lock</span>();</span><br><span class="line"></span><br><span class="line"><span class="function">std::shared_ptr&lt;Weight&gt; <span class="title">spw</span><span class="params">(wpw)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>Weak_ptr 的潜在使用场景：缓存、观察者列表、打破 shared_ptr 环状结构</p>
+<h3 id="优先使用-make-unique-和-make-shared，而非直接使用-new"><a href="#优先使用-make-unique-和-make-shared，而非直接使用-new" class="headerlink" title="优先使用 make_unique 和 make_shared，而非直接使用 new"></a>优先使用 make_unique 和 make_shared，而非直接使用 new</h3>
+      
+    </div>
+
+    
+    
+    
+	
+	 
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/13/HTTP%E8%AF%B7%E6%B1%82%E5%92%8C%E7%9B%B8%E5%BA%94/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -990,20 +1122,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

@@ -20,25 +20,23 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="HTTP 请求格式 请求行请求方法常用的有：  GET：地址栏访问、超链接访问一般都是 GET 方法，不安全，并且地址栏大小有限 POST：内容在请求体中，安全，没有长度限制  URL：请求的地址 版本协议：  HTTP&#x2F;1.0：建立连接后立即断开，下次访问再次建立连接 HTTP&#x2F;1.1：建立连接后可以不断开，待不在需要访问，再断开连接。  回车符换行符：\r\n 请求头部 ：">
+  <meta name="description" content="原始指针出现的问题：（声明和销毁的问题，对象声明周期的问题） #原始指针的问题  它的声明不能指示所指的到底是单个对象还是一个数组 它的声明没有告诉你用完是否应该销毁它 销毁是该使用 delete 机制还是析构机制 如果使用 delete，那么是是哟经 delete，还是 delete[] 很难确定在所有执行路径上都执行了恰为一次的销毁 没办法告诉你是否成为了悬空指针，即内存不再存在所指之物，指针">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTTP请求和相应">
-<meta property="og:url" content="http://example.com/2023/03/13/HTTP%E8%AF%B7%E6%B1%82%E5%92%8C%E7%9B%B8%E5%BA%94/index.html">
+<meta property="og:title" content="C++ 智能指针">
+<meta property="og:url" content="http://example.com/2023/03/14/C-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/index.html">
 <meta property="og:site_name" content="敢敢的憨憨">
-<meta property="og:description" content="HTTP 请求格式 请求行请求方法常用的有：  GET：地址栏访问、超链接访问一般都是 GET 方法，不安全，并且地址栏大小有限 POST：内容在请求体中，安全，没有长度限制  URL：请求的地址 版本协议：  HTTP&#x2F;1.0：建立连接后立即断开，下次访问再次建立连接 HTTP&#x2F;1.1：建立连接后可以不断开，待不在需要访问，再断开连接。  回车符换行符：\r\n 请求头部 ：">
+<meta property="og:description" content="原始指针出现的问题：（声明和销毁的问题，对象声明周期的问题） #原始指针的问题  它的声明不能指示所指的到底是单个对象还是一个数组 它的声明没有告诉你用完是否应该销毁它 销毁是该使用 delete 机制还是析构机制 如果使用 delete，那么是是哟经 delete，还是 delete[] 很难确定在所有执行路径上都执行了恰为一次的销毁 没办法告诉你是否成为了悬空指针，即内存不再存在所指之物，指针">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mrhu-1314150645.cos.ap-beijing.myqcloud.com/obsidian/pic/20230223200548.png">
-<meta property="og:image" content="https://mrhu-1314150645.cos.ap-beijing.myqcloud.com/obsidian/pic/20230223201425.png">
-<meta property="og:image" content="https://mrhu-1314150645.cos.ap-beijing.myqcloud.com/obsidian/pic/20230223201609.png">
-<meta property="og:image" content="https://mrhu-1314150645.cos.ap-beijing.myqcloud.com/obsidian/pic/20230223201816.png">
-<meta property="article:published_time" content="2023-03-13T05:26:08.000Z">
-<meta property="article:modified_time" content="2023-03-13T05:29:30.986Z">
+<meta property="og:image" content="https://mrhu-1314150645.cos.ap-beijing.myqcloud.com/obsidian/pic/20230213101350.png">
+<meta property="article:published_time" content="2023-03-14T01:22:49.000Z">
+<meta property="article:modified_time" content="2023-03-14T01:23:46.442Z">
 <meta property="article:author" content="胡刚">
-<meta property="article:tag" content="计算机网络">
+<meta property="article:tag" content="指针">
+<meta property="article:tag" content="智能指针">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://mrhu-1314150645.cos.ap-beijing.myqcloud.com/obsidian/pic/20230223200548.png">
+<meta name="twitter:image" content="https://mrhu-1314150645.cos.ap-beijing.myqcloud.com/obsidian/pic/20230213101350.png">
 
-<link rel="canonical" href="http://example.com/2023/03/13/HTTP%E8%AF%B7%E6%B1%82%E5%92%8C%E7%9B%B8%E5%BA%94/">
+<link rel="canonical" href="http://example.com/2023/03/14/C-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/">
 
 
 <script id="page-configurations">
@@ -51,7 +49,7 @@
   };
 </script>
 
-  <title>HTTP请求和相应 | 敢敢的憨憨</title>
+  <title>C++ 智能指针 | 敢敢的憨憨</title>
   
 
 
@@ -186,7 +184,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/13/HTTP%E8%AF%B7%E6%B1%82%E5%92%8C%E7%9B%B8%E5%BA%94/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/14/C-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/user.png">
@@ -199,7 +197,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          HTTP请求和相应
+          C++ 智能指针
         </h1>
 
         <div class="post-meta">
@@ -211,7 +209,16 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-03-13 13:26:08 / 修改时间：13:29:30" itemprop="dateCreated datePublished" datetime="2023-03-13T13:26:08+08:00">2023-03-13</time>
+              <time title="创建时间：2023-03-14 09:22:49 / 修改时间：09:23:46" itemprop="dateCreated datePublished" datetime="2023-03-14T09:22:49+08:00">2023-03-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
             </span>
 
           
@@ -232,33 +239,69 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="HTTP-请求格式"><a href="#HTTP-请求格式" class="headerlink" title="HTTP 请求格式"></a>HTTP 请求格式</h1><p><img src="https://mrhu-1314150645.cos.ap-beijing.myqcloud.com/obsidian/pic/20230223200548.png" alt="image.png"></p>
-<h2 id="请求行"><a href="#请求行" class="headerlink" title="请求行"></a>请求行</h2><p>请求方法常用的有：</p>
+        <p>原始指针出现的问题：（<strong>声明和销毁的问题，对象声明周期的问题</strong>） #原始指针的问题</p>
+<ol>
+<li>它的声明不能指示所指的到底是单个对象还是一个数组</li>
+<li>它的声明没有告诉你用完是否应该销毁它</li>
+<li>销毁是该使用 delete 机制还是析构机制</li>
+<li>如果使用 delete，那么是是哟经 delete，还是 delete[]</li>
+<li>很难确定在所有执行路径上都执行了恰为一次的销毁</li>
+<li>没办法告诉你是否成为了悬空指针，即内存不再存在所指之物，指针仍然指向他们</li>
+</ol>
+<p>智能指针包裹原始指针，存在四种智能指针：</p>
 <ul>
-<li>GET：地址栏访问、超链接访问一般都是 GET 方法，不安全，并且地址栏大小有限</li>
-<li>POST：内容在请求体中，安全，没有长度限制</li>
+<li>Std::auto_ptr</li>
+<li>Std::unique_ptr</li>
+<li>Std::shared_ptr</li>
+<li>Std::weak_ptr</li>
 </ul>
-<p>URL：请求的地址</p>
-<p>版本协议：</p>
+<h3 id="独占资源使用-std-unique-ptr"><a href="#独占资源使用-std-unique-ptr" class="headerlink" title="独占资源使用 std::unique_ptr"></a>独占资源使用 std::unique_ptr</h3><p>Std:: unique_ptr 完全可以取代原始指针，它体现了专有所有权语义。</p>
 <ul>
-<li>HTTP&#x2F;1.0：建立连接后立即断开，下次访问再次建立连接</li>
-<li>HTTP&#x2F;1.1：建立连接后可以<strong>不断开</strong>，<strong>待不在需要访问，再断开连接</strong>。</li>
+<li><p>一个非 null 的 std:: unique_ptr 始终拥有其指向的内容（<strong>不会造成悬空指针</strong>）</p>
+</li>
+<li><p>移动一个 std:: unique_ptr 将所有权从源指针转移到目的指针，源指针被设为 null（**移动操作）</p>
+</li>
+<li><p>拷贝一个 std:: unique_ptr 是不被允许的（<strong>出现重复销毁的问题</strong>）<br>所以 std:: unique_ptr 是一个<strong>只可移动</strong>类型的，当析构时，默认情况下，采用原始指针调用<strong>delete</strong>的方式来实现。</p>
+</li>
+<li><p>Std:: unique_ptr 可以自定义删除操作，需要定义一个 Lambda 表达式</p>
+</li>
+<li><p>当自定义删除器时，删除器类型必须作为第二个类型实参传递给 std::unique_ptr</p>
+</li>
+<li><p>Std:: unique_ptr 可以快速的转换为 std::shared_ptr</p>
+</li>
 </ul>
-<p>回车符换行符：<strong>\r\n</strong></p>
-<h2 id="请求头部-："><a href="#请求头部-：" class="headerlink" title="请求头部 ："></a>请求头部 ：</h2><p><img src="https://mrhu-1314150645.cos.ap-beijing.myqcloud.com/obsidian/pic/20230223201425.png" alt="image.png"></p>
-<h2 id="回车符换行符"><a href="#回车符换行符" class="headerlink" title="回车符换行符"></a>回车符换行符</h2><p>一般用来分割请求头部和请求体</p>
-<h2 id="请求数据"><a href="#请求数据" class="headerlink" title="请求数据"></a>请求数据</h2><p>一般是 POST 请求方式才有</p>
-<h1 id="HTTP-响应格式"><a href="#HTTP-响应格式" class="headerlink" title="HTTP 响应格式"></a>HTTP 响应格式</h1><p><img src="https://mrhu-1314150645.cos.ap-beijing.myqcloud.com/obsidian/pic/20230223201609.png" alt="image.png"></p>
-<h2 id="状态行"><a href="#状态行" class="headerlink" title="状态行"></a>状态行</h2><p>状态码：</p>
+<h3 id="资源共享使用-std-shared-ptr"><a href="#资源共享使用-std-shared-ptr" class="headerlink" title="资源共享使用 std::shared_ptr"></a>资源共享使用 std::shared_ptr</h3><p>Std:: shared_ptr 用过引用计数来确保它是否是最后一个指向某种资源的指针。所以构造函数通常递增计数器，析构函数递减计数器，如果计数器递减后发现计数器值为 0，那么他就会销毁对象资源。</p>
+<p>引用计数器暗含着性能问题：</p>
 <ul>
-<li>200</li>
-<li>302：重定向</li>
-<li>304：从本地浏览器缓存拿取数据</li>
-<li>404</li>
-<li>500</li>
+<li><strong>Std:: shared_ptr 大小是原始指针的两倍</strong>，既含有一个指向资源的原始指，又有一个指向资源的引用计数值的原始指针。</li>
+<li><strong>引用计数的内存必须动态分配</strong></li>
+<li><strong>递增递减操作必须是原子性的</strong></li>
 </ul>
-<h2 id="响应头部"><a href="#响应头部" class="headerlink" title="响应头部"></a>响应头部</h2><p><img src="https://mrhu-1314150645.cos.ap-beijing.myqcloud.com/obsidian/pic/20230223201816.png" alt="image.png"></p>
+<p>因为移动构造函数的存在，所以构造函数不总是递增计数器。老的 shared_ptr 指向 null，所以移动构造比拷贝构造快</p>
+<p>Std:: shared_ptr 同样也可以自定义删除器，但是删除器不是智能指针的一部分</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> logginDel=[](Weight *pw*)&#123;</span><br><span class="line"><span class="built_in">makeLog</span>(pw);</span><br><span class="line"><span class="keyword">delete</span> pw;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">std::shared_ptr&lt;Weight&gt; <span class="title">spw</span><span class="params">(<span class="keyword">new</span> Weight, logginDel)</span>  # 这里</span></span><br></pre></td></tr></table></figure>
 
+<p><img src="https://mrhu-1314150645.cos.ap-beijing.myqcloud.com/obsidian/pic/20230213101350.png" alt="image.png"></p>
+<p>控制块的创建遵循的规则：</p>
+<ul>
+<li>Std::make_shared：总是创建一个控制块，所以 std:: make_shared 调用时对象不存在其他控制块</li>
+<li>当从独占指针上构造出 std:: shared_ptr 时会创建控制块</li>
+<li>从原始指针构造出 std:: shared_ptr 时会创建控制块</li>
+</ul>
+<ol>
+<li>避免传给 std:: shared_ptr 构造函数原始指针，通常代替方法是使用 std::make_shared</li>
+<li>如果必须传递原始指针，使用 new 出来的结果，不传递指针变量</li>
+</ol>
+<p>Std:: shared_ptr 不能够处理数组</p>
+<h3 id="当-std-shared-ptr-可能悬空时使用-std-weak-ptr"><a href="#当-std-shared-ptr-可能悬空时使用-std-weak-ptr" class="headerlink" title="当 std:: shared_ptr 可能悬空时使用 std::weak_ptr"></a>当 std:: shared_ptr 可能悬空时使用 std::weak_ptr</h3><p>Std:: weak_ptr 通常是从 std:: shared_ptr 上创建，并且 std:: weak_ptr 不会影响对象的引用计数。</p>
+<pre><code>此时如果想要通过判断std::weak_ptr是否为空，并且对其操作，那么需要一个原子操作，防止其他线程修改。有两种方式：
+1. std::weak_ptr::lock，返回一个shared_ptr，如果过期，那么这个shared_ptr为空
+2. 使用weak_ptr为实参构造shared_ptr，如果过期，会抛出异常
+</code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">std::shared_ptr&lt;Weight&gt; spw1=wpw.<span class="built_in">lock</span>();</span><br><span class="line"><span class="keyword">auto</span> spw1=wpw.<span class="built_in">lock</span>();</span><br><span class="line"></span><br><span class="line"><span class="function">std::shared_ptr&lt;Weight&gt; <span class="title">spw</span><span class="params">(wpw)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>Weak_ptr 的潜在使用场景：缓存、观察者列表、打破 shared_ptr 环状结构</p>
+<h3 id="优先使用-make-unique-和-make-shared，而非直接使用-new"><a href="#优先使用-make-unique-和-make-shared，而非直接使用-new" class="headerlink" title="优先使用 make_unique 和 make_shared，而非直接使用 new"></a>优先使用 make_unique 和 make_shared，而非直接使用 new</h3>
     </div>
 
     
@@ -303,7 +346,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://example.com/2023/03/13/HTTP%E8%AF%B7%E6%B1%82%E5%92%8C%E7%9B%B8%E5%BA%94/" title="HTTP请求和相应">http://example.com/2023/03/13/HTTP请求和相应/</a>
+    <a href="http://example.com/2023/03/14/C-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/" title="C++ 智能指针">http://example.com/2023/03/14/C-智能指针/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -314,7 +357,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag"># 计算机网络</a>
+              <a href="/tags/%E6%8C%87%E9%92%88/" rel="tag"># 指针</a>
+              <a href="/tags/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/" rel="tag"># 智能指针</a>
           </div>
 
         
@@ -323,13 +367,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/03/13/%E4%B8%89%E4%BD%93-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="prev" title="三体（读书笔记）">
-      <i class="fa fa-chevron-left"></i> 三体（读书笔记）
+    <a href="/2023/03/13/HTTP%E8%AF%B7%E6%B1%82%E5%92%8C%E7%9B%B8%E5%BA%94/" rel="prev" title="HTTP请求和相应">
+      <i class="fa fa-chevron-left"></i> HTTP请求和相应
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2023/03/14/C-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/" rel="next" title="C++ 智能指针">
-      C++ 智能指针 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -393,7 +434,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP-%E8%AF%B7%E6%B1%82%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">HTTP 请求格式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E8%A1%8C"><span class="nav-number">1.1.</span> <span class="nav-text">请求行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E5%A4%B4%E9%83%A8-%EF%BC%9A"><span class="nav-number">1.2.</span> <span class="nav-text">请求头部 ：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E8%BD%A6%E7%AC%A6%E6%8D%A2%E8%A1%8C%E7%AC%A6"><span class="nav-number">1.3.</span> <span class="nav-text">回车符换行符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E6%95%B0%E6%8D%AE"><span class="nav-number">1.4.</span> <span class="nav-text">请求数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP-%E5%93%8D%E5%BA%94%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">HTTP 响应格式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E8%A1%8C"><span class="nav-number">2.1.</span> <span class="nav-text">状态行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%93%8D%E5%BA%94%E5%A4%B4%E9%83%A8"><span class="nav-number">2.2.</span> <span class="nav-text">响应头部</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8B%AC%E5%8D%A0%E8%B5%84%E6%BA%90%E4%BD%BF%E7%94%A8-std-unique-ptr"><span class="nav-number">1.</span> <span class="nav-text">独占资源使用 std::unique_ptr</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B5%84%E6%BA%90%E5%85%B1%E4%BA%AB%E4%BD%BF%E7%94%A8-std-shared-ptr"><span class="nav-number">2.</span> <span class="nav-text">资源共享使用 std::shared_ptr</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BD%93-std-shared-ptr-%E5%8F%AF%E8%83%BD%E6%82%AC%E7%A9%BA%E6%97%B6%E4%BD%BF%E7%94%A8-std-weak-ptr"><span class="nav-number">3.</span> <span class="nav-text">当 std:: shared_ptr 可能悬空时使用 std::weak_ptr</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%85%88%E4%BD%BF%E7%94%A8-make-unique-%E5%92%8C-make-shared%EF%BC%8C%E8%80%8C%E9%9D%9E%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8-new"><span class="nav-number">4.</span> <span class="nav-text">优先使用 make_unique 和 make_shared，而非直接使用 new</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
