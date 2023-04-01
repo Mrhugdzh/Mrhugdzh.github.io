@@ -20,21 +20,25 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="汤普森采样在贪婪算法和信心上限算法（UCB）中，使用到的都是先验知识进行的动作选取，通过之前奖励的累计来进行动作的选择。 汤普森采样是跟后验知识进行的动作选择，不是一个具体的值，也是采取一种采样的方式。首先一开始得到的是动作的先验知识，然后在获得数据的前提下，得到后验知识，然后在后验知识中进行采样，相当于是一种采样，虽然动作概率高，但是每个动作都有用被选到的可能性。 1. 介绍与之前的e-gree">
+  <meta name="description" content="算法思路： 在拿到这道题的时候，我想的便是从前向后遍历数组，如果遇到逆序的排列（$a[i] &gt; a[i+1]$）便将$a[i]$变为0，同时将$a[i]$之前的数字变为0，也将数组中所有等于$a[i]$及它之前的数字都变为0，这样边可以保证最终的数组是升序的。 遇到问题：超时！！ 时间复杂度分析 因为要进行从前往后的遍历，所以基础时间复杂度是O(n)，当遇到逆序排列的时候，需要先将$a[">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Thompsonsampling">
-<meta property="og:url" content="http://example.com/2022/06/09/Thompsonsampling/index.html">
+<meta property="og:title" content="2023拼多多面试题4">
+<meta property="og:url" content="http://example.com/2023/04/01/2023%E6%8B%BC%E5%A4%9A%E5%A4%9A%E9%9D%A2%E8%AF%95%E9%A2%984/index.html">
 <meta property="og:site_name" content="敢敢的憨憨">
-<meta property="og:description" content="汤普森采样在贪婪算法和信心上限算法（UCB）中，使用到的都是先验知识进行的动作选取，通过之前奖励的累计来进行动作的选择。 汤普森采样是跟后验知识进行的动作选择，不是一个具体的值，也是采取一种采样的方式。首先一开始得到的是动作的先验知识，然后在获得数据的前提下，得到后验知识，然后在后验知识中进行采样，相当于是一种采样，虽然动作概率高，但是每个动作都有用被选到的可能性。 1. 介绍与之前的e-gree">
+<meta property="og:description" content="算法思路： 在拿到这道题的时候，我想的便是从前向后遍历数组，如果遇到逆序的排列（$a[i] &gt; a[i+1]$）便将$a[i]$变为0，同时将$a[i]$之前的数字变为0，也将数组中所有等于$a[i]$及它之前的数字都变为0，这样边可以保证最终的数组是升序的。 遇到问题：超时！！ 时间复杂度分析 因为要进行从前往后的遍历，所以基础时间复杂度是O(n)，当遇到逆序排列的时候，需要先将$a[">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-06-09T11:53:48.000Z">
-<meta property="article:modified_time" content="2022-06-09T11:54:59.282Z">
+<meta property="og:image" content="https://mrhu-1314150645.cos.ap-beijing.myqcloud.com/obsidian/pic/Snipaste_2023-03-30_16-54-55.JPG">
+<meta property="og:image" content="https://mrhu-1314150645.cos.ap-beijing.myqcloud.com/obsidian/pic/Snipaste_2023-03-30_16-54-27.JPG">
+<meta property="og:image" content="https://mrhu-1314150645.cos.ap-beijing.myqcloud.com/obsidian/pic/Snipaste_2023-03-30_16-54-37.JPG">
+<meta property="og:image" content="https://mrhu-1314150645.cos.ap-beijing.myqcloud.com/obsidian/pic/Snipaste_2023-03-30_16-54-46.JPG">
+<meta property="article:published_time" content="2023-04-01T02:06:09.000Z">
+<meta property="article:modified_time" content="2023-04-01T02:31:16.775Z">
 <meta property="article:author" content="慢慢长大">
-<meta property="article:tag" content="深度强化学习">
-<meta property="article:tag" content="探索与利用">
+<meta property="article:tag" content="算法题">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mrhu-1314150645.cos.ap-beijing.myqcloud.com/obsidian/pic/Snipaste_2023-03-30_16-54-55.JPG">
 
-<link rel="canonical" href="http://example.com/2022/06/09/Thompsonsampling/">
+<link rel="canonical" href="http://example.com/2023/04/01/2023%E6%8B%BC%E5%A4%9A%E5%A4%9A%E9%9D%A2%E8%AF%95%E9%A2%984/">
 
 
 <script id="page-configurations">
@@ -47,7 +51,7 @@
   };
 </script>
 
-  <title>Thompsonsampling | 敢敢的憨憨</title>
+  <title>2023拼多多面试题4 | 敢敢的憨憨</title>
   
 
 
@@ -172,7 +176,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/09/Thompsonsampling/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/01/2023%E6%8B%BC%E5%A4%9A%E5%A4%9A%E9%9D%A2%E8%AF%95%E9%A2%984/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/user.png">
@@ -185,7 +189,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Thompsonsampling
+          2023拼多多面试题4
         </h1>
 
         <div class="post-meta">
@@ -197,7 +201,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-06-09 19:53:48 / 修改时间：19:54:59" itemprop="dateCreated datePublished" datetime="2022-06-09T19:53:48+08:00">2022-06-09</time>
+              <time title="创建时间：2023-04-01 10:06:09 / 修改时间：10:31:16" itemprop="dateCreated datePublished" datetime="2023-04-01T10:06:09+08:00">2023-04-01</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -205,7 +209,11 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度强化学习</span></a>
+                  <a href="/categories/%E7%A7%8B%E6%8B%9B/" itemprop="url" rel="index"><span itemprop="name">秋招</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%8B%E6%8B%9B/%E6%8B%BC%E5%A4%9A%E5%A4%9A/" itemprop="url" rel="index"><span itemprop="name">拼多多</span></a>
                 </span>
             </span>
 
@@ -227,22 +235,38 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="汤普森采样"><a href="#汤普森采样" class="headerlink" title="汤普森采样"></a>汤普森采样</h2><p>在贪婪算法和信心上限算法（UCB）中，使用到的都是先验知识进行的动作选取，通过之前奖励的累计来进行动作的选择。</p>
-<p>汤普森采样是跟后验知识进行的动作选择，不是一个具体的值，也是采取一种采样的方式。首先一开始得到的是动作的先验知识，然后在获得数据的前提下，得到后验知识，然后在后验知识中进行采样，相当于是一种采样，虽然动作概率高，但是每个动作都有用被选到的可能性。</p>
-<h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a>1. 介绍</h2><p>与之前的e-greedy算法和UCB算法不同，前两种算法选择动作的依据是通过之前选择的动作所获得的奖励值的均值来进行动作的选择，而汤普森采样则不是根据以前采样的平均奖励去扩展这个建立得到后面的动作，而是从已有的分布中建立一种可能的模型，然后从这个模型中进行抽样选择动作。</p>
-<p>这种方式，不仅仅是一种对已有奖励的一种准确的评估，同时模型也会对于这个奖励有一定的信心，这种信心会随着采集数据的增多变得越来越准确。这就是<strong>贝叶斯推理</strong>。</p>
-<h2 id="2-汤普森采样"><a href="#2-汤普森采样" class="headerlink" title="2 汤普森采样"></a>2 汤普森采样</h2><p>就像介绍的那样，为了使事情变得简单，我们简化充电问题。现在，每一个充电桩不会返回一个随机的电量，而是返回充电或者不充电，奖励仅仅只有两个值，一个是1，表示这个充电桩会提供电量，另一个是0表示这个充电桩不会提供电量。当一个随机的问题只有这两种可能的输出的时候，这个问题就可以问描述为伯努利分布。</p>
-<p>所以，现在问题就称为了我们希望找到尽可能高可能性的可以返回给我们电量的充电桩，而不是找到给我们充电电量最多的充电桩。（<strong>问题转换为了伯努利分布）</strong></p>
-<p>根据上面提到的，汤普森采样产生了一个奖励可能性的模型。同时，在这个例子中，可能的奖励只有两种，所以贝塔分布很理想到利用到这了这种情况</p>
-<p>贝塔分布有两个参数分贝时 alpha 和 bate。在简单的例子中，这两个参数可能分别被看做是成功和失败的次数。</p>
-<p>此外，贝</p>
-<p>相反对于贪婪算法，采取每一个时间步下采取当前最高评估奖励值的动作，针织此时对于评估的信心是较低的。不同的是，汤普森采样从每个动作的贝塔分布中进行采样，并且选择具有最高价值的动作，由于一开始动作没有被充分的尝试，所以有一个分款的分布，他们都有很大的可能去呗采集到，通过这种方式，充电桩当前拥有很低的评估均值奖励，但是拥有更少的被探测的次数与一个更高评估均值的来说，可以返回一个更大的采样价值，因此在这个时间步，可以被选择。（<strong>意思就是说一个拥有很低预估奖励的动作在采样价值的时候可能也会很大，所以动作也可能被选择</strong>）</p>
-<p>在下面的图中，蓝色的曲线与绿色的曲线相比，有着较低的平均奖励值，所以如果使用贪婪算法的话，那么会一直采用绿色曲线的动作，蓝色曲线的动作就一直不会被采取，但是在汤普深采样中，考虑的是整个区间，所以绿色区间可能被采样到的奖励值可能小于蓝色去向采样到的奖励值，所以蓝色动作就有被选择的可能性。</p>
-<p>随着一个充电桩被尝试的次数越来越多，关于它的评估均值奖励分布的模型的信心越来越充足。这反映在分布变得越来越窄，所以接下来的均值奖励的采样越来越接近于真实动作的均值奖励。因此，探索减少，利用增多，因为带有更高可能性返回更大奖励值的充电桩将会随之被采取的次数越来越多。</p>
-<p>另一方面，带有较低评估奖励的充电桩将会被选择的次数越来越少，在接下来的选择过程中将会被逐步淘汰。因此他们的真实奖励或许永远都不会被发现，因为我们只是关注对于可能返回更多奖励的充电桩出现的可能性，并且尽可能快速的发现他，我们不关心表现不好的充电桩的全部信息。</p>
-<h3 id="3-汤普森采样例子"><a href="#3-汤普森采样例子" class="headerlink" title="3 汤普森采样例子"></a>3 汤普森采样例子</h3><h3 id="4-高斯汤普森采样"><a href="#4-高斯汤普森采样" class="headerlink" title="4 高斯汤普森采样"></a>4 高斯汤普森采样</h3><p>虽然上面的方式可以很好的解决问题，但是在真实的充电桩问题中，充电桩返回的不是一个二进制的数据，而是真实的充电的数量，我们需要改变我们的方法。</p>
-<p>在先前的问题中，我们使用贝塔分布来建模充电桩的行为。这样做的原因是充电桩的返回仅仅有两种，充电或者是未充电，因此可以描述为一个伯努利分布。当一个价值从伯努利分布中被采样，那么可以被推广成一个价值从贝塔分布中进行采样。</p>
-<p>所以我们可以将充电桩的输出建模为一种正态分布，并且通过它的均值和方差不断进行更新这个模型，如果不适用方差，而是使用准确度 tau ，tau是方差的倒数，然后我们可以使用简单的更新规则去更新均值和准确度 tau通过如下的方式：</p>
+        <p><img src="https://mrhu-1314150645.cos.ap-beijing.myqcloud.com/obsidian/pic/Snipaste_2023-03-30_16-54-55.JPG" alt="Snipaste_2023-03-30_16-54-55"></p>
+<hr>
+<p><strong>算法思路：</strong></p>
+<p>在拿到这道题的时候，我想的便是从前向后遍历数组，如果遇到逆序的排列（$a[i] &gt; a[i+1]$）便将$a[i]$变为0，同时将$a[i]$之前的数字变为0，也将数组中所有等于$a[i]$及它之前的数字都变为0，这样边可以保证最终的数组是升序的。</p>
+<p><strong>遇到问题：超时！！</strong></p>
+<p><strong>时间复杂度分析</strong></p>
+<p>因为要进行从前往后的遍历，所以基础时间复杂度是O(n)，当遇到逆序排列的时候，需要先将$a[i]$之前的变为0，时间复杂度可以视为O(n)，并且此时需要将数组中所有的与$a[i]$之前数字相同的都变为0，需要遍历一遍数组，时间复杂度是O(n)，三者是相乘的关系，那么时间复杂度就是$O(n^3)$。这种方法最终只可以通过20%的测试用例。</p>
+<p><strong>算法改进</strong></p>
+<p>减小时间复杂度的方法要不优化算法，要不用空间来换取时间。算法优化上我不是很擅长，那么就思考是否可以使用空间来换取时间。</p>
+<p>创建一个数组state，表示数字的真实状态，如果为0，表示数字的真实状态就是它自身；如果为1，表示数字的真实状态是0。这样代替遍历第三次数组的操作，使得时间复杂度变为O(1)，那么此时的算法时间复杂度就是$O(n^2)$。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">举个例子：</span><br><span class="line">nums[] = &#123;1, 3, 1, 3&#125;</span><br><span class="line">state[] = &#123;0, 0, 0,0&#125; //初始化state</span><br><span class="line">当nums走到nums[1]和nums[2]的时候，此时不满足升序，</span><br><span class="line">需要将nums[1]变为0，也需要将nums[1]变为0，并且要将数组中和nums[0],nums[1]相等的数字都变为0</span><br><span class="line">1. 首先将state[3]置位1，并且遍历3之前的将state[1]置位1，更改次数+2</span><br><span class="line">2. 向后遍历遇到1，查询state[1]为0，不会比后面的大，所以i++</span><br><span class="line">3. 遍历到3,为最后一个，遍历结束，此时更改次数就是最小的更改次数</span><br></pre></td></tr></table></figure>
+
+<p><strong>思考的关键</strong></p>
+<p>关键便是对于每次比较两个数$(nums[i], nums[i+1])$状态的思考，分为以下三种情况：</p>
+<ol>
+<li>$nums[i],nums[i+1]$的state都为0，那么他们就是真实的值，进行大小比较就可以</li>
+<li>$nums[i]$ 的state为1，那么不管$nums[i+1]$是什么，都可以满足升序</li>
+<li>$nums[i+1]$的state为1， $nums[i]$的state不为1，不需要比较，$state[i]$需要变为1</li>
+</ol>
+<p><strong>通过代码如下</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">do_some</span><span class="params">(<span class="type">int</span> m, vector&lt;<span class="type">int</span>&gt; record)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(record.<span class="built_in">size</span>() == <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">bool</span>&gt; <span class="title">rere</span><span class="params">(<span class="number">10001</span>, <span class="number">0</span>)</span></span>; <span class="comment">// 用来存储每个数字的状态， 1：已经变为0， 0：是原来的数</span></span><br><span class="line">    <span class="type">int</span> index = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i =<span class="number">0</span>; i&lt;record.<span class="built_in">size</span>()<span class="number">-1</span>; i++) &#123;</span><br><span class="line">        <span class="comment">// 当前的数的真实数字都是0</span></span><br><span class="line">        <span class="keyword">if</span>(rere[record[i]] ==<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 后面的数字是0， 前面的此是0， 从前往后遍历，让不是0的都变成0</span></span><br><span class="line">        <span class="keyword">if</span>(rere[record[i+<span class="number">1</span>]] ==<span class="number">1</span>) &#123;</span><br><span class="line">            rere[record[i]] = <span class="number">1</span>;</span><br><span class="line">            index++;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j&lt;i; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(rere[record[j]] == <span class="number">0</span>) &#123;</span><br><span class="line">                    rere[record[j]] = <span class="number">1</span>; <span class="comment">// 需要改变的数字，次数+1</span></span><br><span class="line">                    index++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 两个的真实状态都不是0，且不满足升序，需要前面都为数字都为0</span></span><br><span class="line">        <span class="keyword">if</span>(record[i] &gt; record[i+<span class="number">1</span>]) &#123;</span><br><span class="line">            rere[record[i]] =<span class="number">1</span>;</span><br><span class="line">            index++;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j&lt;i; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(rere[record[j]] ==<span class="number">0</span>) &#123;</span><br><span class="line">                    rere[record[j]] = <span class="number">1</span>;<span class="comment">// 需要改变的数字，次数+1</span></span><br><span class="line">                    index++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> index;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">while</span>(n) &#123;</span><br><span class="line">        <span class="type">int</span> m; <span class="comment">// 表示有m个数字</span></span><br><span class="line">        cin&gt;&gt;m;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">record</span><span class="params">(m)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i&lt;m; i++) &#123;</span><br><span class="line">            cin&gt;&gt;record[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> result = <span class="built_in">do_some</span>(m, record);</span><br><span class="line">        cout&lt;&lt;result&lt;&lt;endl;</span><br><span class="line">        n--;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>对于其他三个题，非常遗憾，没有做出来，还是有点难度的，把题目共享出来。</p>
+<p><strong>第一题</strong></p>
+<p><img src="https://mrhu-1314150645.cos.ap-beijing.myqcloud.com/obsidian/pic/Snipaste_2023-03-30_16-54-27.JPG" alt="Snipaste_2023-03-30_16-54-27"></p>
+<hr>
+<p><strong>第二题</strong></p>
+<p><img src="https://mrhu-1314150645.cos.ap-beijing.myqcloud.com/obsidian/pic/Snipaste_2023-03-30_16-54-37.JPG"></p>
+<hr>
+<p><strong>第三题</strong></p>
+<p><img src="https://mrhu-1314150645.cos.ap-beijing.myqcloud.com/obsidian/pic/Snipaste_2023-03-30_16-54-46.JPG" alt="Snipaste_2023-03-30_16-54-46"></p>
 
     </div>
 
@@ -288,7 +312,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://example.com/2022/06/09/Thompsonsampling/" title="Thompsonsampling">http://example.com/2022/06/09/Thompsonsampling/</a>
+    <a href="http://example.com/2023/04/01/2023%E6%8B%BC%E5%A4%9A%E5%A4%9A%E9%9D%A2%E8%AF%95%E9%A2%984/" title="2023拼多多面试题4">http://example.com/2023/04/01/2023拼多多面试题4/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -299,8 +323,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" rel="tag"># 深度强化学习</a>
-              <a href="/tags/%E6%8E%A2%E7%B4%A2%E4%B8%8E%E5%88%A9%E7%94%A8/" rel="tag"># 探索与利用</a>
+              <a href="/tags/%E7%AE%97%E6%B3%95%E9%A2%98/" rel="tag"># 算法题</a>
           </div>
 
         
@@ -309,13 +332,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/06/09/Noisy-Net/" rel="prev" title="Noisy Net">
-      <i class="fa fa-chevron-left"></i> Noisy Net
+    <a href="/2023/03/14/DFS%E5%92%8CBFS/" rel="prev" title="DFS和BFS">
+      <i class="fa fa-chevron-left"></i> DFS和BFS
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2023/03/13/Linux-%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BC%96%E7%A8%8B/" rel="next" title="Linux 高性能服务器编程">
-      Linux 高性能服务器编程 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -379,7 +399,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B1%A4%E6%99%AE%E6%A3%AE%E9%87%87%E6%A0%B7"><span class="nav-number">1.</span> <span class="nav-text">汤普森采样</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.</span> <span class="nav-text">1. 介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%B1%A4%E6%99%AE%E6%A3%AE%E9%87%87%E6%A0%B7"><span class="nav-number">3.</span> <span class="nav-text">2 汤普森采样</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%B1%A4%E6%99%AE%E6%A3%AE%E9%87%87%E6%A0%B7%E4%BE%8B%E5%AD%90"><span class="nav-number">3.1.</span> <span class="nav-text">3 汤普森采样例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E9%AB%98%E6%96%AF%E6%B1%A4%E6%99%AE%E6%A3%AE%E9%87%87%E6%A0%B7"><span class="nav-number">3.2.</span> <span class="nav-text">4 高斯汤普森采样</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
